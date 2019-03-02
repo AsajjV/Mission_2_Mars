@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Opportunity's Obituary</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 jumbotron text-center">
+            <h1 class="text-danger">Exploring the Red Planet</h1>
+            <h2 class="text-danger">Opportunity is dead, long live Opportunity!</h2>
+            <a class="btn btn-danger" style = "margin:10px" href="/scrape"><h3>Scrape the latest Mars Updates!</h3></button></a>
+            <img src="https://mars.nasa.gov/system/news_items/main_images/8413_PIA06739-16x9.jpg">
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <h3 class="panel-title">Mars Facts</h3>
+              </div>
+              <div id="mars_df" class="panel-body">{{mars_data.mars_df_html | safe}}</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+          <div class="panel panel-danger">
+                <div class="panel-heading">
+                  <h3 class="panel-title">News from Mars</h3>
+                </div>
+                <div id="news" class="panel-body"><strong>{{mars_data.latest_title}}</strong>  {{mars_data.latest_teaser}}</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+            <div class="panel panel-danger">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Martian Meteorological Tweets</h3>
+                    </div>
+                    <div id="tweet" class="panel-body">{{mars_data.tweet_weather}}</div>
+            </div>
+            </div>
+      </div>      
+      </div>
+      
+      <div class = container> 
+        <div id="hemispheres">
+          <div class="col-md-6">
+          <h1>{{ mars_data.hemispheres_dict[0]["title"] }}</h1>
+          <img src={{ mars_data.hemispheres_dict[0]["img_url"] }} alt="hemisphere1" style="width:75%">
+          </div>
+          <div class="col-md-6">
+              <h1>{{ mars_data.hemispheres_dict[1]["title"] }}</h1>
+              <img src={{ mars_data.hemispheres_dict[1]["img_url"] }} alt="hemissphere2" style="width:75%">
+          </div>
+          <div class="col-md-6">
+              <h1>{{ mars_data.hemispheres_dict[2]["title"] }}</h1>
+              <img src={{ mars_data.hemispheres_dict[2]["img_url"] }} alt="hemisphere3" style="width:75%">
+          </div>
+          <div class="col-md-6">
+              <h1>{{ mars_data.hemispheres_dict[3]["title"] }}</h1>
+              <img src={{ mars_data.hemispheres_dict[3]["img_url"] }} alt="hemisphere4" style="width:75%">
+          </div>
+
+          <div id="mars_img" class="col-md-12">
+          <h1 class = "text-danger text-center">Latest Image from Mars</h1>
+          <img src = {{mars_data.img_url}} height = auto width="100%">
+          </div>  
+          
+        </div>
+      </div>
+    
+    
+
+</body>
